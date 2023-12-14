@@ -4,19 +4,19 @@ en:
   follow_category_button_title: "Follow"
   category_options:
     notifications:
-      title: "change notification level for this circle"
+      title: "change notification level for this category"
       watching:
         label: "Following"
         title: "Watching"
-        description: "You will automatically watch all topics in this circle. You will be notified of every new post in every topic, and a count of new replies will be shown."
+        description: "You will automatically watch all topics in this category. You will be notified of every new post in every topic, and a count of new replies will be shown."
       watching_first_post:
         label: "Following"
         title: "Watching First Post"
-        description: "You will be notified of new topics in this circle but not replies to the topics."
+        description: "You will be notified of new topics in this category but not replies to the topics."
       tracking:
         label: "Following"
         title: "Tracking"
-        description: "You will automatically track all topics in this circle. You will be notified if someone mentions your @name or replies to you, and a count of new replies will be shown."
+        description: "You will automatically track all topics in this category. You will be notified if someone mentions your @name or replies to you, and a count of new replies will be shown."
       regular:
         label: "Follow"
         title: "Normal"
@@ -24,4 +24,4 @@ en:
       muted:
         label: "Muted"
         title: "Muted"
-        description: "You will never be notified of anything about new topics in this circle, and they will not appear in latest."
+        description: "You will never be notified of anything about new topics in this category, and they will not appear in latest."
