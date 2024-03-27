@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { action, computed } from "@ember/object";
-import { inject as service } from "@ember/service";
-import { tracked } from "@glimmer/tracking";
+import { service } from "@ember/service";
+import { NotificationLevels } from "discourse/lib/notification-levels";
 
 export default class FollowCategoryButton extends Component {
   @service currentUser;
@@ -21,7 +21,7 @@ export default class FollowCategoryButton extends Component {
 
   @computed("args.model.category.notification_level")
   get showFollowButton() {
-    if (this.args.model.category.notification_level == 1) {
+    if (this.args.model.category.notification_level === 1) {
       return true;
     } else {
       return false;

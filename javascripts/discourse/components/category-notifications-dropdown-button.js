@@ -1,5 +1,5 @@
-import I18n from "I18n";
 import { or } from "@ember/object/computed";
+import I18n from "I18n";
 import CategoryNotificationsDropdown from "./category-notifications-dropdown";
 
 export default CategoryNotificationsDropdown.extend({
