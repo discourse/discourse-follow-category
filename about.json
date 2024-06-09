@@ -1,6 +1,6 @@
 {
-  "about_url": "TODO: Put your theme's public repo or Meta topic URL here",
-  "license_url": "TODO: Put your theme's LICENSE URL here",
+  "about_url": "https://meta.discourse.org/t/follow-category/309682",
+  "license_url": "https://github.com/discourse/discourse-follow-category/blob/main/LICENSE",
   "assets": {
   },
   "name": "Follow Category Button",
