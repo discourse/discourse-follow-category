@@ -1,3 +1,4 @@
+import { readOnly } from '@ember/object/computed';
 import { or } from "@ember/object/computed";
 import I18n from "I18n";
 import CategoryNotificationsDropdown from "./category-notifications-dropdown";
@@ -5,7 +6,7 @@ import CategoryNotificationsDropdown from "./category-notifications-dropdown";
 export default CategoryNotificationsDropdown.extend({
   pluginApiIdentifiers: ["category-notifications-dropdown-button"],
   classNames: ["category-notifications-dropdown-button"],
-  isHidden: or("category.deleted"),
+  isHidden: readOnly("category.deleted"),
 
   selectKitOptions: {
     showFullTitle: true,
