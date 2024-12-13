@@ -1,8 +1,6 @@
 {
   "about_url": "https://meta.discourse.org/t/follow-category/309682",
   "license_url": "https://github.com/discourse/discourse-follow-category/blob/main/LICENSE",
-  "assets": {
-  },
   "name": "Follow Category Button",
   "component": true
 }
