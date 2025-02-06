@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import DButton from "discourse/components/d-button";
 import { NotificationLevels } from "discourse/lib/notification-levels";
-import i18n from "discourse-common/helpers/i18n";
+import { i18n } from "discourse-i18n";
 import CategoryNotificationsDropdownButton from "../components/category-notifications-dropdown-button";
 
 export default class FollowCategoryButton extends Component {

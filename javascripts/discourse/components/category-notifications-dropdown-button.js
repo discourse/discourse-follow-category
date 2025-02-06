@@ -1,6 +1,6 @@
 import { readOnly } from "@ember/object/computed";
 import { classNames } from "@ember-decorators/component";
-import I18n from "I18n";
+import { i18n } from "discourse-i18n";
 import {
   pluginApiIdentifiers,
   selectKitOptions,
@@ -11,7 +11,7 @@ import CategoryNotificationsDropdown from "./category-notifications-dropdown";
 @selectKitOptions({
   showFullTitle: true,
   i18nPrefix: themePrefix("category_options.notifications"),
-  headerAriaLabel: I18n.t(themePrefix("category_options.notifications.title")),
+  headerAriaLabel: i18n(themePrefix("category_options.notifications.title")),
 })
 @classNames("category-notifications-dropdown-button")
 export default class CategoryNotificationsDropdownButton extends CategoryNotificationsDropdown {
