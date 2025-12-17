@@ -7,6 +7,8 @@ import {
   pluginApiIdentifiers,
   selectKitOptions,
 } from "select-kit/components/select-kit";
+import NotificationsButtonRow from "select-kit/components/notifications-button/notifications-button-row";
+
 
 @selectKitOptions({
   autoFilterable: false,
@@ -21,7 +23,7 @@ export default class FollowNotificationsDropdown extends DropdownSelectBoxCompon
   nameProperty = "key";
 
   modifyComponentForRow() {
-    return "notifications-button/notifications-button-row";
+    return NotificationsButtonRow;
   }
 
   modifySelection(content) {
