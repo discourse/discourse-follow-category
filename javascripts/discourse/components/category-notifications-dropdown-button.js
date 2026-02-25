@@ -11,9 +11,13 @@ import CategoryNotificationsDropdown from "./category-notifications-dropdown";
 @selectKitOptions({
   showFullTitle: true,
   i18nPrefix: themePrefix("category_options.notifications"),
-  headerAriaLabel: i18n(themePrefix("category_options.notifications.title")),
+  headerAriaLabel: "translatedHeaderAriaLabel",
 })
 @classNames("category-notifications-dropdown-button")
 export default class CategoryNotificationsDropdownButton extends CategoryNotificationsDropdown {
   @readOnly("category.deleted") isHidden;
+
+  get translatedHeaderAriaLabel() {
+    return i18n(themePrefix("category_options.notifications.title"));
+  }
 }
