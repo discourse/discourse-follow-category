@@ -1,10 +1,10 @@
 import { readOnly } from "@ember/object/computed";
 import { classNames } from "@ember-decorators/component";
-import { i18n } from "discourse-i18n";
 import {
   pluginApiIdentifiers,
   selectKitOptions,
-} from "select-kit/components/select-kit";
+} from "discourse/select-kit/components/select-kit";
+import { i18n } from "discourse-i18n";
 import CategoryNotificationsDropdown from "./category-notifications-dropdown";
 
 @pluginApiIdentifiers("category-notifications-dropdown-button")

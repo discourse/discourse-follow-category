@@ -1,13 +1,13 @@
 import { computed, setProperties } from "@ember/object";
 import { classNames } from "@ember-decorators/component";
 import { allLevels, buttonDetails } from "discourse/lib/notification-levels";
-import { i18n } from "discourse-i18n";
-import DropdownSelectBoxComponent from "select-kit/components/dropdown-select-box";
-import NotificationsButtonRow from "select-kit/components/notifications-button/notifications-button-row";
+import DropdownSelectBoxComponent from "discourse/select-kit/components/dropdown-select-box";
+import NotificationsButtonRow from "discourse/select-kit/components/notifications-button/notifications-button-row";
 import {
   pluginApiIdentifiers,
   selectKitOptions,
-} from "select-kit/components/select-kit";
+} from "discourse/select-kit/components/select-kit";
+import { i18n } from "discourse-i18n";
 
 @selectKitOptions({
   autoFilterable: false,
