@@ -8,6 +8,7 @@ import CategoryNotificationsDropdownButton from "../components/category-notifica
 
 export default class FollowCategoryButton extends Component {
   @service currentUser;
+  @service router;
 
   get indirectlyMutedCategoryIds() {
     return this.currentUser?.indirectly_muted_category_ids || [];
@@ -27,13 +28,23 @@ export default class FollowCategoryButton extends Component {
     );
   }
 
+  promptLogin() {
+    this.router.transitionTo("login");
+  }
+
   @action
   changeCategoryNotificationLevel(notificationLevel) {
+    if (!this.currentUser) {
+      return this.promptLogin();
+    }
     this.args.model?.setNotification(notificationLevel);
   }
 
   @action
   followCategory() {
+    if (!this.currentUser) {
+      return this.promptLogin();
+    }
     this.args.model?.setNotification(NotificationLevels.WATCHING_FIRST_POST);
   }
 

@@ -6,17 +6,16 @@ RSpec.describe "Follow Category Button", system: true do
 
   let!(:theme) { upload_theme_component }
 
-  before do
-    sign_in(user)
-    CategoryUser.set_notification_level_for_category(
-      user,
-      NotificationLevels.all[:regular],
-      category.id,
-    )
-  end
-
-  context "when visiting a category page" do
-    before { visit "/c/#{category.id}" }
+  context "when a logged-in user visits a category page" do
+    before do
+      sign_in(user)
+      CategoryUser.set_notification_level_for_category(
+        user,
+        NotificationLevels.all[:regular],
+        category.id,
+      )
+      visit "/c/#{category.id}"
+    end
 
     it "displays the follow button if the notification level is 1" do
       expect(page).to have_css(".follow-category-button")
@@ -37,6 +36,16 @@ RSpec.describe "Follow Category Button", system: true do
       find(".category-notifications-dropdown-button").click
 
       expect(page).to have_css(".category-notifications-dropdown-button .select-kit-body")
+    end
+  end
+
+  context "when an anonymous user visits a category page" do
+    before { visit "/c/#{category.id}" }
+
+    it "displays the follow button and prompts for login when it is clicked" do
+      find(".follow-category-button").click
+
+      expect(page).to have_css(".login-fullpage")
     end
   end
 end
