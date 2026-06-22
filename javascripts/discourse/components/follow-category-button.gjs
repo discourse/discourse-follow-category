@@ -2,13 +2,13 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import DButton from "discourse/components/d-button";
+import routeAction from "discourse/helpers/route-action";
 import { NotificationLevels } from "discourse/lib/notification-levels";
 import { i18n } from "discourse-i18n";
 import CategoryNotificationsDropdownButton from "../components/category-notifications-dropdown-button";
 
 export default class FollowCategoryButton extends Component {
   @service currentUser;
-  @service router;
 
   get indirectlyMutedCategoryIds() {
     return this.currentUser?.indirectly_muted_category_ids || [];
@@ -28,23 +28,13 @@ export default class FollowCategoryButton extends Component {
     );
   }
 
-  promptLogin() {
-    this.router.transitionTo("login");
-  }
-
   @action
   changeCategoryNotificationLevel(notificationLevel) {
-    if (!this.currentUser) {
-      return this.promptLogin();
-    }
     this.args.model?.setNotification(notificationLevel);
   }
 
   @action
   followCategory() {
-    if (!this.currentUser) {
-      return this.promptLogin();
-    }
     this.args.model?.setNotification(NotificationLevels.WATCHING_FIRST_POST);
   }
 
@@ -52,7 +42,11 @@ export default class FollowCategoryButton extends Component {
     {{#if @model}}
       {{#if this.showFollowButton}}
         <DButton
-          @action={{this.followCategory}}
+          @action={{if
+            this.currentUser
+            this.followCategory
+            (routeAction "showLogin")
+          }}
           @icon="bell"
           @translatedLabel={{i18n (themePrefix "follow_category_button_title")}}
           class="follow-category-button btn-default"
@@ -61,7 +55,11 @@ export default class FollowCategoryButton extends Component {
         <CategoryNotificationsDropdownButton
           @value={{this.categoryNotificationLevel}}
           @category={{@model}}
-          @onChange={{this.changeCategoryNotificationLevel}}
+          @onChange={{if
+            this.currentUser
+            this.changeCategoryNotificationLevel
+            (routeAction "showLogin")
+          }}
         />
       {{/if}}
     {{/if}}
